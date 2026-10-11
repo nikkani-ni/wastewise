@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#214c3d">
+
+    <title>WASTEWISE | Login</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js" defer></script>
+</head>
+
+<body>
+
+        <header class="navbar">
+            <a href="home.html" class="logo">
+                <svg class="brand-icon" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor"
+                    stroke-width="1.7" aria-hidden="true">
+                    <path d="M20 4C11 4 5 7 5 14a5 5 0 0 0 5 5c7 0 10-7 10-15Z"/>
+                    <path d="M3 21c3-6 7-9 12-12"/>
+                </svg>
+                <span>WASTEWISE</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    type="button"
+                    aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+            <a href="home.html" class="tab">Home</a>
+            <a href="about.html" class="tab">About</a>
+            <a href="contact.html" class="tab">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container" id="home">
+
+        <section class="welcome-section" id="about">
+            <div class="left-logo" aria-hidden="true">
+                <svg class="brand-icon" viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#F0E6CE"
+                    stroke-width="1.7"
+                    aria-hidden="true">
+                    <path d="M20 4C11 4 5 7 5 14a5 5 0 0 0 5 5c7 0 10-7 10-15Z"/>
+                    <path d="M3 21c3-6 7-9 12-12"/>
+                </svg>
+            </div>
+            <h1>WASTEWISE</h1>
+
+            <p class="tagline">
+                Cleaner Communities, Healthier Tomorrow
+            </p>
+
+            <div class="divider" aria-hidden="true">
+                <span></span>
+                <span class="divider-icon">✦</span>
+                <span></span>
+            </div>
+
+            <p class="welcome-text">
+                Together, we can build cleaner, safer,
+                and more sustainable communities.
+            </p>
+
+        </section>
+
+        <section class="login-card" aria-label="Account access">
+
+            <div class="tabs" aria-label="Account options">
+                <a href="login.html" class="tab active">Login</a>
+                <a href="register.html" class="tab">Register</a>
+            </div>
+
+            <div class="form-heading">
+                <h2 id="formTitle">Welcome Back!</h2>
+
+                <p id="formSubtitle">
+                    LOG IN TO YOUR ACCOUNT TO CONTINUE.
+                </p>
+            </div>
+
+            <form id="autoForm" novalidate>
+                <div class="form-group" id="nameGroup" hidden>
+                    <label for="fullName">Full Name</label>
+
+                    <div class="input-box">
+                        <input type="text" id="fullName"
+                               name="fullName"
+                               placeholder="Enter your full name"
+                               autocomplete="name">
+                            </div>
+
+                                <small class="error" id="nameError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email or Phone Number</label>
+
+                                <div class="input-box">
+                                    <svg class="input-icon" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor"
+                                        stroke-width="1.6" aria-hidden="true">
+                                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                        <path d="m3 7 9 6 9-6"/>
+                                    </svg>
+
+                                    <input type="text" id="email" name="email"
+                                        placeholder="Enter your email or phone number"
+                                        autocomplete="username">
+                                </div>
+
+                                <small class="error" id="emailError"></small>
+                            </div>
+
+                            <div class="form-group">
+
+                            <label for="password">Password</label>
+
+                                <div class="input-box">
+                                    <svg class="input-icon lock-icon"
+                                        viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor"
+                                        stroke-width="1.6" aria-hidden="true">
+                                        <rect x="4" y="10" width="16" height="11" rx="2"/>
+                                        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                                        <path d="M12 14v3"/>
+                                    </svg>
+
+                                    <input type="password" id="password"
+                                        name="password"
+                                        placeholder="Enter your password"
+                                        autocomplete="current-password">
+
+                                    <button type="button"
+                                            class="show-password"
+                                            id="togglePassword"
+                                            aria-label="Show password"
+                                            aria-pressed="false">
+
+                                        <svg id="eyeIcon"
+                                            viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor"
+                                            stroke-width="1.7"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            aria-hidden="true">
+                                            <path d="M2 12s3.5-7 10-7
+                                                    10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <small class="error" id="passwordError"></small>
+                            </div>
+
+                            <div class="form-options" id="loginOptions">
+                                <label class="remember">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <span>Remember me</span>
+                                </label>
+
+                                <a href="#" id="forgotPassword">
+                                    Forgot password?
+                                </a>
+                            </div>
+
+
+                            <p class="message" id="formMessage"
+                            role="status" aria-live="polite"></p>
+
+                            <button type="submit" class="login-button" id="submitButton">
+                                Login
+                            </button>
+
+                        </form>
+
+                        
+                        <p class="register-text" id="switchText">
+                            Don't have an account?
+                            <a href="register.html" class="register-link">
+                                Register here
+                            </a>
+                        </p>
+
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        WASTEWISE © 2026 | Cleaner Communities, Healthier Tomorrow
+    </footer>
+
+</body>
+</html>

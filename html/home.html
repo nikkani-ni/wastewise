@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#214c3d">
+    <meta name="description" content="WASTEWISE helps communities support cleaner, safer, and more sustainable waste management.">
+
+    <title>WASTEWISE</title>
+
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="../js/home.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="home.html" class="logo">
+            <svg class="brand-icon" viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F0E6CE"
+                stroke-width="1.7"
+                aria-hidden="true">
+                <path d="M20 4C11 4 5 7 5 14a5 5 0 0 0 5 5c7 0 10-7 10-15Z"/>
+                <path d="M3 21c3-6 7-9 12-12"/>
+                </svg>
+            <span>WASTEWISE</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+                <a href="home.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+    </header>
+
+    <main>
+        <section class="hero section-wrap" id="home">
+            <div class="hero-content">
+                <div class="hero-leaf" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </svg>
+                </div>
+
+                <p class="welcome">WELCOME TO WASTEWISE</p>
+                <h1>Cleaner Communities,<br>Healthier Tomorrow</h1>
+
+                <p class="hero-description">
+                    Join us in building a cleaner, safer, and more sustainable
+                    future. Together, we can make a real difference in our community.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="login.html" class="button button-primary">Get Started</a>
+                    <a href="about.html" class="button button-outline">Learn More</a>
+                </div>
+            </div>
+
+            <div class="hero-visual" role="img" aria-label="Illustration of recycling bins, green leaves, and the Earth">
+                <div class="earth">
+                    <span class="earth-land land-one"></span>
+                    <span class="earth-land land-two"></span>
+                    <span class="recycle-symbol">♻</span>
+                </div>
+
+                <div class="plant plant-left">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <div class="bins">
+                    <div class="bin"><span>♻</span></div>
+                    <div class="bin bin-middle"><span>♻</span></div>
+                    <div class="bin"><span>♻</span></div>
+                </div>
+
+                <div class="ground"></div>
+            </div>
+        </section>
+
+        <section class="benefits section-wrap" aria-label="WASTEWISE goals">
+            <article class="benefit">
+                <div class="benefit-icon" aria-hidden="true">
+                    <i data-lucide="sprout"></i>
+                </div>
+                <h2>Reduce Waste</h2>
+                <p>Less waste, cleaner surroundings, and more responsible disposal.</p>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-icon" aria-hidden="true">
+                    <i data-lucide="recycle"></i>
+                </div>
+                <h2>Promote Recycling</h2>
+                <p>Encourage proper waste segregation and give reusable materials a second life.</p>
+            </article>
+
+            <article class="benefit">
+                <div class="benefit-icon" aria-hidden="true">
+                    <i data-lucide="users-round"></i>
+                </div>
+                <h2>Stronger Communities</h2>
+                <p>Work together for cleaner neighborhoods and healthier communities.</p>
+            </article>
+        </section>
+
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+
+        <section class="home-about">
+            <div class="section-wrap about-preview">
+                <div>
+                    <p class="better">A BETTER WAY TO MANAGE WASTE</p>
+                    <h2>Small Actions.<br>Big Impact.</h2>
+                    <p>
+                        WASTEWISE aims to make waste pickup coordination clearer
+                        through organized scheduling, pickup tracking, and better
+                        communication among community members and waste collectors.
+                    </p>
+                    <a href="about.html" class="button button-primary">Discover WASTEWISE</a>
+                </div>
+
+                <div class="preview-art" aria-hidden="true">
+                    <span class="preview-leaf">♧</span>
+                    <span class="preview-recycle">♻</span>
+                    <span class="preview-leaf second-leaf">♧</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        WASTEWISE © 2026 | Cleaner Communities, Healthier Tomorrow
+    </footer>
+
+</body>
+</html>

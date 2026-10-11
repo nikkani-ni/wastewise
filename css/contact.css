@@ -1,0 +1,232 @@
+
+@import url("./home.css");
+
+.contact-main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(35px, 6vw, 75px);
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+.contact-intro h1 {
+    margin-bottom: 16px;
+    color: #526B43;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(32px, 3.5vw, 43px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.contact-intro > p:not(.eyebrow) {
+    max-width: 430px;
+    color: #526B43;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-details {
+    display: grid;
+    gap: 23px;
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-icon {
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #526B43;
+    color: white;
+    font-size: 20px;
+}
+
+.contact-item h2 {
+    margin-bottom: 2px;
+    color: #526B43;
+    font-size: 14px;
+}
+
+.contact-item p {
+    color: #64816f;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.contact-form-card {
+    width: 100%;
+    min-width: 0;
+    padding: clamp(22px, 3vw, 32px);
+    border: 1px solid #789788;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .12);
+    box-shadow: 0 12px 32px rgba(33, 76, 61, .05);
+}
+
+.contact-form-card > h2 {
+    margin-bottom: 6px;
+    color: #526B43;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+}
+
+.form-description {
+    margin-bottom: 23px;
+    color: #64816f;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    min-width: 0;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #355a48;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    outline: none;
+    background: rgba(255, 255, 255, .12);
+    color: var(--text);
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 43px;
+}
+
+.form-group textarea {
+    min-height: 125px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94aa9b;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #526B43;
+    box-shadow: 0 0 0 3px rgba(33, 76, 61, .08);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.character-count {
+    margin-top: 5px;
+    color: #789384;
+    font-size: 10px;
+    text-align: right;
+}
+
+.form-status {
+    margin-bottom: 12px;
+    color: #526B43;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.form-status:empty {
+    display: none;
+}
+
+.form-status.error-status {
+    color: #b54747;
+}
+
+.send-button {
+    width: 100%;
+    cursor: pointer;
+}
+
+@media (max-width: 850px) {
+    .contact-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        max-width: 650px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .contact-intro {
+        text-align: center;
+    }
+
+    .contact-intro > p:not(.eyebrow) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-details {
+        max-width: 400px;
+        margin: 25px auto 0;
+        text-align: left;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-main {
+        gap: 28px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .contact-form-card {
+        padding: 20px 16px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-icon {
+        flex-basis: 39px;
+        width: 39px;
+        height: 39px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 13px;
+    }
+}

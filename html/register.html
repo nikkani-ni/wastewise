@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASTEWISE | Register</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/register.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="home.html" class="logo">
+            <svg class="brand-icon" viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F0E6CE"
+                stroke-width="1.7"
+                aria-hidden="true">
+                <path d="M20 4C11 4 5 7 5 14a5 5 0 0 0 5 5c7 0 10-7 10-15Z"/>
+                <path d="M3 21c3-6 7-9 12-12"/>
+                </svg>
+            <span>WASTEWISE</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+    </header>
+
+    <main class="container" id="home">
+
+        <section class="welcome-section" id="about">
+            <div class="left-logo" aria-hidden="true">
+                <svg class="brand-icon" viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#F0E6CE"
+                    stroke-width="1.7"
+                    aria-hidden="true">
+                    <path d="M20 4C11 4 5 7 5 14a5 5 0 0 0 5 5c7 0 10-7 10-15Z"/>
+                    <path d="M3 21c3-6 7-9 12-12"/>
+                </svg>
+            </div>
+            <h1>WASTEWISE</h1>
+
+            <p class="tagline">
+                Cleaner Communities, Healthier Tomorrow
+            </p>
+
+            <div class="divider" aria-hidden="true">
+                <span></span>
+                <span class="divider-icon">✦</span>
+                <span></span>
+            </div>
+
+            <p class="welcome-text">
+                Together, we can build cleaner, safer,
+                and more sustainable communities.
+            </p>
+
+        </section>
+
+    <section class="form-card">
+        <div class="tabs">
+            <a href="login.html" class="tab">Login</a>
+            <a href="register.html" class="tab active">Register</a>
+        </div>
+
+        <div class="form-heading">
+            <h2>Create Your Account</h2>
+            <p>JOIN WASTEWISE FOR A CLEANER COMMUNITY</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <div class="input-box">
+                    <input type="text" id="fullName" name="fullName"
+                           placeholder="Enter your full name"
+                           autocomplete="name">
+                </div>
+                <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email or Phone Number</label>
+                <div class="input-box">
+                    <input type="text" id="email" name="email"
+                           placeholder="Enter your email or phone number"
+                           autocomplete="username">
+                </div>
+                <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-box">
+                    <input type="password" id="password" name="password"
+                           placeholder="Enter your password"
+                           autocomplete="new-password">
+
+                    <button type="button" class="show-password"
+                            data-target="password"
+                            aria-label="Show password"
+                            aria-pressed="false">
+                        <svg class="eye-icon" viewBox="0 0 24 24">
+                            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </button>
+                </div>
+                <small class="error" id="passwordError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-box">
+                    <input type="password" id="confirmPassword"
+                           name="confirmPassword"
+                           placeholder="Confirm your password"
+                           autocomplete="new-password">
+
+                    <button type="button" class="show-password"
+                            data-target="confirmPassword"
+                            aria-label="Show password"
+                            aria-pressed="false">
+                        <svg class="eye-icon" viewBox="0 0 24 24">
+                            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </button>
+                </div>
+                <small class="error" id="confirmPasswordError"></small>
+            </div>
+
+            <div class="terms-group">
+                <label class="terms-label">
+                    <input type="checkbox" id="agreeTerms">
+                    <span>
+                        I agree to the
+                        <a href="#" id="termsLink">Terms</a>
+                        and
+                        <a href="#" id="privacyLink">Privacy Policy</a>.
+                    </span>
+                </label>
+                <small class="error" id="termsError"></small>
+            </div>
+
+            <p class="message" id="formMessage" role="status"></p>
+
+            <button type="submit" class="submit-button">
+                Create Account
+            </button>
+        </form>
+
+        <p class="switch-text">
+            Already have an account?
+            <a href="login.html">Login here</a>
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    WASTEWISE © 2026 | Cleaner Communities, Healthier Tomorrow
+</footer>
+
+</body>
+</html>

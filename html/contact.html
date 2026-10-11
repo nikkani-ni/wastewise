@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#214c3d">
+    <meta name="description" content="Contact WASTEWISE for questions and feedback about community waste pickup coordination.">
+
+    <title>WASTEWISE | Contact</title>
+
+    <link rel="stylesheet" href="../css/contact.css">
+    <script src="../js/contact.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="home.html" class="logo">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M20 4C11 4 5 7 5 14a5 5 0 0 0 5 5c7 0 10-7 10-15Z"/>
+                <path d="M3 21c3-6 7-9 12-12"/>
+            </svg>
+            <span>WASTEWISE</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main class="contact-main section-wrap">
+        <section class="contact-intro">
+            <p class="eyebrow">CONTACT US</p>
+            <h1>Get in Touch</h1>
+            <p>
+                Have questions, suggestions, or feedback about WASTEWISE?
+                Send us a message. We'd love to hear from you.
+            </p>
+
+            <div class="contact-details">
+                <article class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">✉</span>
+                    <div>
+                        <h2>Email</h2>
+                        <p>Wastwise06@gmail.com</p>
+                    </div>
+                </article>
+
+                <article class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">☎</span>
+                    <div>
+                        <h2>Phone</h2>
+                        <p>123-45-567-890</p>
+                    </div>
+                </article>
+
+                <article class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">⌖</span>
+                    <div>
+                        <h2>Community</h2>
+                        <p>Not yet</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-form-card">
+            <h2>Send Us a Message</h2>
+            <p class="form-description">
+                Fill out the form below and review your details before sending.
+            </p>
+
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name" required minlength="2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="System Feedback">System Feedback</option>
+                        <option value="Waste Pickup Concern">Waste Pickup Concern</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5"
+                            placeholder="Write your message here..."
+                            required minlength="10"></textarea>
+                    <div class="character-count">
+                        <span id="characterCount">0</span>/1000 characters
+                    </div>
+                </div>
+
+                <p class="form-status" id="formStatus"
+                role="status" aria-live="polite"></p>
+
+                <button type="submit" class="button button-primary send-button">
+                    Send Message
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        WASTEWISE © 2026 | Cleaner Communities, Healthier Tomorrow
+    </footer>
+
+</body>
+</html>
