@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request details | Waste Wise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css-resident/style.css">
+    <link rel="stylesheet" href="../css-resident/request-details.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR (computer screens) -->
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">
+            <span class="brand-mark">W</span>
+            <span class="brand-name">Waste Wise<small>Smart waste management</small></span>
+        </a>
+        <nav aria-label="Main menu">
+            <div class="nav-title">Pickups</div>
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+            <a class="nav-link" href="schedule-pickup.html">Schedule pickup</a>
+            <a class="nav-link active" href="my-requests.html">My requests</a>
+            <a class="nav-link" href="collection-point.html">Collection point</a>
+            <div class="nav-title">Community</div>
+            <a class="nav-link" href="report-disposal.html">Report disposal</a>
+            <a class="nav-link" href="announcements.html">Announcements</a>
+            <a class="nav-link" href="waste-guideline.html">Waste guidelines</a>
+            <div class="nav-title">Account</div>
+            <a class="nav-link" href="notifications.html">Notifications<span class="count hide">0</span></a>
+            <a class="nav-link" href="my-profile.html">My profile</a>
+            <a class="nav-link" href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-space"></div>
+        <button class="nav-link" type="button" data-logout>Log out</button>
+    </aside>
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <a class="top-logo" href="dashboard.html"><span class="brand-mark">W</span>Waste Wise</a>
+            <div class="top-right">
+                <a class="bell" href="notifications.html" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    <span class="count hide">0</span>
+                </a>
+                <a class="profile-chip" href="my-profile.html" aria-label="My profile">
+                    <span class="avatar" data-initials></span>
+                    <span class="chip-text"><b data-name></b><small>Resident · Purok 4</small></span>
+                </a>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content">
+            <a class="text-link" href="my-requests.html">← Back to my requests</a>
+
+            <div class="card empty hide" id="notFound">
+                <p>We could not find that request.</p>
+                <a class="btn" href="my-requests.html">Back to my requests</a>
+            </div>
+
+            <div id="detailBox">
+                <div class="title-row"><h1 id="detTitle"></h1><span class="badge" id="detBadge"></span></div>
+
+                <div class="two-col">
+                    <div class="card">
+                        <h2>Progress</h2>
+                        <p class="big-msg" id="detMessage"></p>
+                        <ol class="timeline" id="timeline">
+                            <li><span class="dot"></span><div><b>Request submitted</b><small>Sent to the barangay waste office.</small></div></li>
+                            <li><span class="dot"></span><div><b>Request verified</b><small>Staff checked your details.</small></div></li>
+                            <li><span class="dot"></span><div><b>Collector assigned</b><small>A collector will be assigned.</small></div></li>
+                            <li><span class="dot"></span><div><b>Collector on the way</b><small>Bring your waste to the collection point now.</small></div></li>
+                            <li><span class="dot"></span><div><b>Waste collected</b><small>Pickup complete. Thank you!</small></div></li>
+                        </ol>
+                        <button class="btn btn-danger hide" type="button" id="cancelBtn">Cancel request</button>
+                    </div>
+
+                    <div class="stack">
+                        <div class="card">
+                            <h2>Details</h2>
+                            <dl class="details">
+                                <div><dt>Pickup date</dt><dd id="dDate"></dd></div>
+                                <div><dt>Time</dt><dd id="dTime"></dd></div>
+                                <div><dt>Waste</dt><dd id="dType"></dd></div>
+                                <div><dt>Amount</dt><dd id="dBags"></dd></div>
+                                <div><dt>Area</dt><dd>Purok 4</dd></div>
+                                <div id="rowNote"><dt>Your note</dt><dd id="dNote"></dd></div>
+                            </dl>
+                        </div>
+                        <div class="card">
+                            <h2 style="margin-bottom:12px">Collector location</h2>
+                            <svg class="map" viewBox="0 0 400 220" role="img" aria-label="Map of Tungkop, Minglanilla, Cebu">
+                <rect width="400" height="220" fill="#CFE3D4"/>
+                <g stroke="#F6FAF5" stroke-width="10" fill="none"><path d="M0 150L400 90"/><path d="M130 0L190 220"/><path d="M280 0L250 220"/></g>
+                <g stroke="#AEC1B4" stroke-width="2" fill="none" opacity=".6"><path d="M0 60L400 30M0 200L400 190M60 0L40 220"/></g>
+                <g id="route" style="display:none"><path d="M40 190L130 150L190 125L250 100" stroke="#6E9A5B" stroke-width="4" stroke-dasharray="8 6" fill="none"/><circle cx="130" cy="150" r="9" fill="#6E9A5B"/></g>
+                <path d="M250 96C232 74 232 56 250 56S268 74 250 96Z" fill="#526B43"/><circle cx="250" cy="66" r="6" fill="#F6FAF5"/>
+              </svg>
+                            <p class="muted" style="margin-top:12px;font-size:15px" id="mapNote"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- TAB BAR (phones) -->
+<nav class="tabbar" aria-label="Main">
+        <a class="" href="dashboard.html">Home</a>
+        <a class="active" href="my-requests.html">Requests</a>
+        <a class="add" href="schedule-pickup.html" aria-label="Schedule pickup">+</a>
+        <a class="" href="notifications.html">Alerts<span class="count hide">0</span></a>
+        <a class="" href="menu.html">Menu</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../jsresident/data.js"></script>
+    <script src="../jsresident/common.js"></script>
+    <script src="../jsresident/request-details.js"></script>
+</body>
+</html>

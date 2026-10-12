@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My requests | Waste Wise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css-resident/style.css">
+    <link rel="stylesheet" href="../css-resident/my-requests.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR (computer screens) -->
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">
+            <span class="brand-mark">W</span>
+            <span class="brand-name">Waste Wise<small>Smart waste management</small></span>
+        </a>
+        <nav aria-label="Main menu">
+            <div class="nav-title">Pickups</div>
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+            <a class="nav-link" href="schedule-pickup.html">Schedule pickup</a>
+            <a class="nav-link active" href="my-requests.html">My requests</a>
+            <a class="nav-link" href="collection-point.html">Collection point</a>
+            <div class="nav-title">Community</div>
+            <a class="nav-link" href="report-disposal.html">Report disposal</a>
+            <a class="nav-link" href="announcements.html">Announcements</a>
+            <a class="nav-link" href="waste-guideline.html">Waste guidelines</a>
+            <div class="nav-title">Account</div>
+            <a class="nav-link" href="notifications.html">Notifications<span class="count hide">0</span></a>
+            <a class="nav-link" href="my-profile.html">My profile</a>
+            <a class="nav-link" href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-space"></div>
+        <button class="nav-link" type="button" data-logout>Log out</button>
+    </aside>
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <a class="top-logo" href="dashboard.html"><span class="brand-mark">W</span>Waste Wise</a>
+            <div class="top-right">
+                <a class="bell" href="notifications.html" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    <span class="count hide">0</span>
+                </a>
+                <a class="profile-chip" href="my-profile.html" aria-label="My profile">
+                    <span class="avatar" data-initials></span>
+                    <span class="chip-text"><b data-name></b><small>Resident · Purok 4</small></span>
+                </a>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content">
+            <h1>My requests</h1>
+            <p class="page-sub">Every pickup you have asked for, and where it stands.</p>
+
+            <div class="chips" id="chips">
+                <button type="button" class="chip selected" data-filter="all">All</button>
+                <button type="button" class="chip" data-filter="pending">Pending</button>
+                <button type="button" class="chip" data-filter="active">Active</button>
+                <button type="button" class="chip" data-filter="completed">Completed</button>
+                <button type="button" class="chip" data-filter="cancelled">Cancelled</button>
+            </div>
+
+            <div class="card table-card" id="tableCard">
+                <table>
+                    <thead>
+                        <tr><th>Request</th><th>Pickup</th><th class="col-waste">Waste</th><th>Status</th><th></th></tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="card empty hide" id="emptyCard">
+                <p id="emptyText">No requests yet.</p>
+                <a class="btn" href="schedule-pickup.html">Schedule a pickup</a>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- TAB BAR (phones) -->
+<nav class="tabbar" aria-label="Main">
+        <a class="" href="dashboard.html">Home</a>
+        <a class="active" href="my-requests.html">Requests</a>
+        <a class="add" href="schedule-pickup.html" aria-label="Schedule pickup">+</a>
+        <a class="" href="notifications.html">Alerts<span class="count hide">0</span></a>
+        <a class="" href="menu.html">Menu</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../jsresident/data.js"></script>
+    <script src="../jsresident/common.js"></script>
+    <script src="../jsresident/my-requests.js"></script>
+</body>
+</html>

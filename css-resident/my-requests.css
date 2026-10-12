@@ -1,0 +1,18 @@
+/* Waste Wise - My requests page */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip { padding: 9px 18px; border: 1px solid var(--border); border-radius: 99px; background: var(--white); color: var(--muted); font-weight: 700; cursor: pointer; }
+.chip.selected { background: var(--dark); border-color: var(--dark); color: #fff; }
+
+.table-card { padding: 6px 0; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { padding: 14px 24px 8px; color: var(--muted); font-size: 13px; font-weight: 700; text-align: left; }
+td { padding: 16px 24px; border-top: 1px solid var(--line); vertical-align: middle; }
+td small { display: block; color: var(--muted); font-size: 14px; }
+.req-id { font-family: 'Montserrat', Arial, sans-serif; font-size: 17px; font-weight: 800; white-space: nowrap; }
+
+@media (max-width: 700px) {
+    th, td { padding-left: 14px; padding-right: 14px; }
+    .col-waste { display: none; }
+}
+
+.table-card .btn { white-space: nowrap; }

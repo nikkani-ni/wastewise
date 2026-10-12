@@ -1,0 +1,9 @@
+/* Waste Wise - Waste guidelines page */
+.do-card { background: #CFE3D4; }
+.dont-card { background: #F4D3CF; }
+
+.guide-list { list-style: none; counter-reset: n; margin-top: 16px; display: grid; gap: 16px; }
+.guide-list li { counter-increment: n; display: flex; gap: 12px; }
+.guide-list li:before { content: counter(n); width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #fff; font-size: 14px; font-weight: 800; }
+.do-card .guide-list li:before { background: #2F6B3F; }
+.dont-card .guide-list li:before { background: var(--red); }

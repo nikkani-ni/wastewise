@@ -1,0 +1,41 @@
+/* Waste Wise - Settings, Menu and Request role change pages */
+.menu-row { display: flex; align-items: center; gap: 14px; width: 100%; padding: 15px 4px; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--ink); font-weight: 600; text-align: left; text-decoration: none; cursor: pointer; }
+.menu-row:last-child { border-bottom: 0; }
+.menu-row .arrow { margin-left: auto; color: var(--muted); font-size: 20px; }
+.menu-row.static { cursor: default; }
+.menu-row .hint { display: block; }
+.menu-row:hover:not(.static) { color: var(--dark); }
+.menu-row:focus-visible, .switch input:focus-visible + i { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.switch { position: relative; width: 52px; height: 30px; flex-shrink: 0; margin: 0 0 0 auto; }
+.switch input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.switch i { position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 99px; background: var(--border); transition: background .2s; }
+.switch i:after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, .25); transition: left .2s; }
+.switch input:checked + i { background: var(--accent); }
+.switch input:checked + i:after { left: 25px; }
+
+.menu-profile { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.menu-profile .avatar { width: 60px; height: 60px; font-size: 21px; }
+.narrow { max-width: 640px; }
+
+.settings-dialog {
+	width: min(520px, calc(100vw - 32px));
+	max-height: min(90vh, 760px);
+	padding: 26px;
+	border: 1px solid var(--line);
+	border-radius: 20px;
+	background: var(--card);
+	color: var(--ink);
+	box-shadow: 0 24px 70px rgba(20, 45, 34, .28);
+}
+.settings-dialog::backdrop { background: rgba(20, 45, 34, .52); }
+.settings-dialog h2 { margin-bottom: 6px; }
+.dialog-intro { margin-bottom: 20px; }
+.settings-dialog .field { margin-bottom: 16px; }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.settings-form-status { min-height: 1.5em; margin: -4px 0 12px; color: var(--red); font-weight: 600; }
+
+@media (max-width: 560px) {
+	.settings-dialog { padding: 20px 16px; }
+	.dialog-actions .btn { flex: 1 1 140px; }
+}

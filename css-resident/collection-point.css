@@ -1,0 +1,22 @@
+/* Waste Wise - Collection point page */
+.how-card { background: #CFE3D4; }
+.how-list { margin: 14px 0 0 22px; display: grid; gap: 10px; }
+.place-address { margin: 6px 0 18px; color: var(--muted); font-size: 17px; }
+.map-card { padding: 0; overflow: hidden; }
+.map-heading { display: flex; align-items: center; gap: 12px; padding: 18px 20px; }
+.map-heading b, .map-heading small { display: block; }
+.map-heading b { color: var(--ink); font-family: 'Montserrat', Arial, sans-serif; font-size: 15px; }
+.map-heading small { margin-top: 3px; color: var(--muted); font-size: 13px; }
+.map-pin { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border-radius: 12px; background: var(--soft); color: var(--dark); font-size: 17px; }
+.location-map { display: block; width: 100%; height: 440px; border: 0; background: #E5EBDD; }
+.map-credit { display: flex; justify-content: space-between; padding: 12px 20px; color: var(--accent); font-size: 13px; font-weight: 700; text-decoration: none; }
+.map-credit:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+	.location-map { height: 380px; }
+}
+
+@media (max-width: 560px) {
+	.location-map { height: 320px; }
+	.map-heading, .map-credit { padding-right: 16px; padding-left: 16px; }
+}

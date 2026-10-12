@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Waste Wise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css-resident/style.css">
+    <link rel="stylesheet" href="../css-resident/dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR (computer screens) -->
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">
+            <span class="brand-mark">W</span>
+            <span class="brand-name">Waste Wise<small>Smart waste management</small></span>
+        </a>
+        <nav aria-label="Main menu">
+            <div class="nav-title">Pickups</div>
+            <a class="nav-link active" href="dashboard.html">Dashboard</a>
+            <a class="nav-link" href="schedule-pickup.html">Schedule pickup</a>
+            <a class="nav-link" href="my-requests.html">My requests</a>
+            <a class="nav-link" href="collection-point.html">Collection point</a>
+            <div class="nav-title">Community</div>
+            <a class="nav-link" href="report-disposal.html">Report disposal</a>
+            <a class="nav-link" href="announcements.html">Announcements</a>
+            <a class="nav-link" href="waste-guideline.html">Waste guidelines</a>
+            <div class="nav-title">Account</div>
+            <a class="nav-link" href="notifications.html">Notifications<span class="count hide">0</span></a>
+            <a class="nav-link" href="my-profile.html">My profile</a>
+            <a class="nav-link" href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-space"></div>
+        <button class="nav-link" type="button" data-logout>Log out</button>
+    </aside>
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <a class="top-logo" href="dashboard.html"><span class="brand-mark">W</span>Waste Wise</a>
+            <div class="top-right">
+                <a class="bell" href="notifications.html" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    <span class="count hide">0</span>
+                </a>
+                <a class="profile-chip" href="my-profile.html" aria-label="My profile">
+                    <span class="avatar" data-initials></span>
+                    <span class="chip-text"><b data-name></b><small>Resident · Purok 4</small></span>
+                </a>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content">
+            <p class="dashboard-kicker">WASTE WISE <span>•</span> RESIDENT DASHBOARD</p>
+            <p class="greet-small" id="greeting"></p>
+            <h1 class="greet-name" id="firstName"></h1>
+
+            <section class="hero">
+                <p class="hero-label" id="heroLabel">Your next pickup</p>
+                <h2 class="hero-date" id="heroDate"></h2>
+                <p class="hero-info" id="heroInfo"></p>
+                <a class="btn btn-white" id="heroBtn" href="schedule-pickup.html">Track this request</a>
+                <ol class="steps" id="heroSteps" aria-label="Request progress">
+                    <li>Sent</li><li>Verified</li><li>Assigned</li><li>On the way</li><li>Collected</li>
+                </ol>
+            </section>
+
+            <div class="card stats">
+                <div><strong id="statTotal">0</strong><span>Total requests</span></div>
+                <div><strong id="statOpen">0</strong><span>Open requests</span></div>
+                <div><strong id="statDone">0</strong><span>Completed pickups</span></div>
+            </div>
+
+            <h2 class="section-title">What would you like to do?</h2>
+            <div class="tiles">
+                <a class="tile tile-1" href="schedule-pickup.html">
+                    <span class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M12 13v5M9.5 15.5h5"/></svg></span>
+                    <b>Schedule a pickup</b><span>Request a collection</span>
+                </a>
+                <a class="tile tile-2" href="collection-point.html">
+                    <span class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+                    <b>Collection point</b><span>Where to bring your waste</span>
+                </a>
+                <a class="tile tile-3" href="report-disposal.html">
+                    <span class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg></span>
+                    <b>Report disposal</b><span>Tell us about dumped waste</span>
+                </a>
+                <a class="tile tile-4" href="waste-guideline.html">
+                    <span class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4c-8 0-13 3-13 9a5 5 0 0 0 5 5c6 0 8-6 8-14Z"/><path d="M3 21c3-5 7-8 12-11"/></svg></span>
+                    <b>Waste guidelines</b><span>How to prepare your waste</span>
+                </a>
+            </div>
+
+            <div class="two-col dash-bottom">
+                <div class="card list-card">
+                    <div class="card-head"><h2>Recent updates</h2><a class="text-link" href="notifications.html">See all</a></div>
+                    <div id="updatesList"></div>
+                </div>
+                <div class="stack">
+                    <div class="card">
+                        <p class="small-muted">Oct 10, 2026</p>
+                        <h3>Collection schedule for October</h3>
+                        <p class="muted">The barangay released the new schedule. Check your Purok day.</p>
+                        <a class="text-link" href="announcements.html">All announcements</a>
+                    </div>
+                    <div class="card tint">
+                        <h3>Prepare your waste</h3>
+                        <p class="muted" style="margin:6px 0 16px">Tie your bags, rinse containers and flatten boxes before pickup.</p>
+                        <a class="btn btn-light" href="waste-guideline.html">Read the guidelines</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- TAB BAR (phones) -->
+<nav class="tabbar" aria-label="Main">
+        <a class="active" href="dashboard.html">Home</a>
+        <a class="" href="my-requests.html">Requests</a>
+        <a class="add" href="schedule-pickup.html" aria-label="Schedule pickup">+</a>
+        <a class="" href="notifications.html">Alerts<span class="count hide">0</span></a>
+        <a class="" href="menu.html">Menu</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../jsresident/data.js"></script>
+    <script src="../jsresident/common.js"></script>
+    <script src="../jsresident/dashboard.js"></script>
+</body>
+</html>

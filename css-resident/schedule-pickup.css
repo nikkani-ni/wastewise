@@ -1,0 +1,14 @@
+/* Waste Wise - Schedule pickup page */
+.step-block { margin-bottom: 28px; }
+.step-block h3 { margin-bottom: 12px; }
+
+.bag-stepper { display: flex; align-items: center; gap: 14px; }
+.bag-stepper button { width: 48px; height: 48px; border: 1.5px solid var(--border); border-radius: 50%; background: var(--white); font-size: 24px; line-height: 1; cursor: pointer; }
+.bag-stepper button:hover { background: var(--soft); }
+.bag-stepper strong { min-width: 44px; text-align: center; font-family: 'Montserrat', Arial, sans-serif; font-size: 36px; font-weight: 800; }
+
+.when-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+@media (max-width: 560px) {
+    .when-grid { grid-template-columns: 1fr; }
+}

@@ -497,12 +497,14 @@ footer {
         top: 58px;
         left: 0;
         right: 0;
-        padding: 10px 22px;
+        padding: 12px 18px 16px;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        background: transparent;
-        box-shadow: none;
+        align-items: stretch;
+        gap: 4px;
+        background: #F6FAF5;
+        border: 1px solid #C6D7C9;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 14px 28px rgba(41, 75, 62, .16);
     }
 
     .nav-links.open {
@@ -515,10 +517,16 @@ footer {
 
     .nav-links a {
         width: 100%;
-        text-align: right;
-        color: #78966A;
+        padding: 11px 12px;
+        border: 0;
+        border-radius: 10px;
+        color: #294B3E;
+        text-align: left;
         text-decoration: none;
     }
+
+    .nav-links a:hover,
+    .nav-links a.active { background: #E2EFD9; color: #526B43; }
 
     .container {
         grid-template-columns: minmax(0, 1fr);

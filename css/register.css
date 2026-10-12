@@ -1,5 +1,6 @@
 @import url("./login.css");
 
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -583,4 +584,27 @@
     .terms-label {
         font-size: 10px;
     }
+}
+
+@media (max-width: 760px) {
+    .nav-links {
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px 18px 16px;
+        border: 1px solid #C6D7C9;
+        border-radius: 0 0 16px 16px;
+        background: #F6FAF5;
+        box-shadow: 0 14px 28px rgba(41, 75, 62, .16);
+    }
+
+    .nav-links a {
+        padding: 11px 12px;
+        border: 0;
+        border-radius: 10px;
+        color: #294B3E;
+        text-align: left;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { background: #E2EFD9; color: #526B43; }
 }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Waste Wise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css-resident/style.css">
+    <link rel="stylesheet" href="../css-resident/settings.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR (computer screens) -->
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">
+            <span class="brand-mark">W</span>
+            <span class="brand-name">Waste Wise<small>Smart waste management</small></span>
+        </a>
+        <nav aria-label="Main menu">
+            <div class="nav-title">Pickups</div>
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+            <a class="nav-link" href="schedule-pickup.html">Schedule pickup</a>
+            <a class="nav-link" href="my-requests.html">My requests</a>
+            <a class="nav-link" href="collection-point.html">Collection point</a>
+            <div class="nav-title">Community</div>
+            <a class="nav-link" href="report-disposal.html">Report disposal</a>
+            <a class="nav-link" href="announcements.html">Announcements</a>
+            <a class="nav-link" href="waste-guideline.html">Waste guidelines</a>
+            <div class="nav-title">Account</div>
+            <a class="nav-link" href="notifications.html">Notifications<span class="count hide">0</span></a>
+            <a class="nav-link" href="my-profile.html">My profile</a>
+            <a class="nav-link active" href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-space"></div>
+        <button class="nav-link" type="button" data-logout>Log out</button>
+    </aside>
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <a class="top-logo" href="dashboard.html"><span class="brand-mark">W</span>Waste Wise</a>
+            <div class="top-right">
+                <a class="bell" href="notifications.html" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    <span class="count hide">0</span>
+                </a>
+                <a class="profile-chip" href="my-profile.html" aria-label="My profile">
+                    <span class="avatar" data-initials></span>
+                    <span class="chip-text"><b data-name></b><small>Resident · Purok 4</small></span>
+                </a>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content">
+            <h1>Settings</h1>
+            <p class="page-sub">Manage your profile, account access and notification preferences.</p>
+
+            <div class="equal-2">
+                <div class="card">
+                    <h2>Account</h2>
+                    <a class="menu-row" href="my-profile.html#edit">Profile information<span class="arrow">›</span></a>
+                    <button class="menu-row" type="button" id="changePasswordBtn">Change password<span class="arrow">›</span></button>
+                    <a class="menu-row" href="my-profile.html#edit-email">Change email address<span class="arrow">›</span></a>
+                    <a class="menu-row" href="request-role-change.html">Request role change<span class="arrow">›</span></a>
+                </div>
+                <div class="stack">
+                    <div class="card">
+                        <h2>Notifications</h2>
+                        <div class="menu-row static">
+                            <div>Email<span class="hint">Save your email notification preference</span></div>
+                            <label class="switch"><input type="checkbox" id="emailSwitch" aria-label="Email notifications"><i></i></label>
+                        </div>
+                        <div class="menu-row static">
+                            <div>Push<span class="hint">Save your device alert preference</span></div>
+                            <label class="switch"><input type="checkbox" id="pushSwitch" aria-label="Push notifications"><i></i></label>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2>Help and support</h2>
+                        <a class="menu-row" href="../html/contact.html">FAQs and contact support<span class="arrow">›</span></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<dialog class="settings-dialog" id="passwordDialog" aria-labelledby="passwordDialogTitle">
+    <form id="passwordForm" novalidate>
+        <h2 id="passwordDialogTitle">Change password</h2>
+        <p class="muted dialog-intro">Choose a new password for your account on this device.</p>
+        <div class="field">
+            <label for="currentPassword">Current password</label>
+            <input type="password" id="currentPassword" autocomplete="current-password" required>
+            <p class="error-text" id="currentPasswordError">Enter your current password.</p>
+        </div>
+        <div class="field">
+            <label for="newPassword">New password</label>
+            <input type="password" id="newPassword" autocomplete="new-password" required>
+            <p class="error-text" id="newPasswordError">Use at least 8 characters with a letter and a number.</p>
+        </div>
+        <div class="field">
+            <label for="confirmNewPassword">Confirm new password</label>
+            <input type="password" id="confirmNewPassword" autocomplete="new-password" required>
+            <p class="error-text" id="confirmNewPasswordError">The passwords must match.</p>
+        </div>
+        <p class="settings-form-status" id="passwordFormStatus" role="status" aria-live="polite"></p>
+        <div class="dialog-actions">
+            <button class="btn" type="submit">Save password</button>
+            <button class="btn btn-light" type="button" id="cancelPasswordBtn">Cancel</button>
+        </div>
+    </form>
+</dialog>
+
+<!-- TAB BAR (phones) -->
+<nav class="tabbar" aria-label="Main">
+        <a class="" href="dashboard.html">Home</a>
+        <a class="" href="my-requests.html">Requests</a>
+        <a class="add" href="schedule-pickup.html" aria-label="Schedule pickup">+</a>
+        <a class="" href="notifications.html">Alerts<span class="count hide">0</span></a>
+        <a class="active" href="menu.html">Menu</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../jsresident/data.js"></script>
+    <script src="../jsresident/common.js"></script>
+    <script src="../jsresident/settings.js"></script>
+</body>
+</html>

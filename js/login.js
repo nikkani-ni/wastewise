@@ -238,18 +238,32 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (currentMode === "login") {
+                if (typeof WW === "undefined") {
+                    formMessage.textContent = "Login is unavailable. Reload the page and try again.";
+                    return;
+                }
 
-                formMessage.textContent =
-                    "Your input is valid. Connect a backend to verify your account.";
+                const remember = document.getElementById("remember");
+                const submit = document.getElementById("submitButton");
+                submit.disabled = true;
+                formMessage.textContent = "Checking your account…";
 
-            } else {
-
-                formMessage.textContent =
-                    "Your input is valid. Connect a backend to create your account.";
-
+                WW.login(contactValue, passwordValue, Boolean(remember && remember.checked))
+                    .then(function (result) {
+                        if (!result.ok) {
+                            showError(result.field === "password" ? "passwordError" : "emailError", result.error);
+                            formMessage.textContent = result.error;
+                            return;
+                        }
+                        window.location.href = WW.RESIDENT_HOME;
+                    })
+                    .catch(function () {
+                        formMessage.textContent = "Unable to log in. Check your browser storage settings and try again.";
+                    })
+                    .finally(function () {
+                        submit.disabled = false;
+                    });
             }
-
-            formMessage.style.color = "#526B43";
         });
     }
 

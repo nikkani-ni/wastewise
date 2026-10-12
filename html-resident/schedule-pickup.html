@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule pickup | Waste Wise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css-resident/style.css">
+    <link rel="stylesheet" href="../css-resident/schedule-pickup.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR (computer screens) -->
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">
+            <span class="brand-mark">W</span>
+            <span class="brand-name">Waste Wise<small>Smart waste management</small></span>
+        </a>
+        <nav aria-label="Main menu">
+            <div class="nav-title">Pickups</div>
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+            <a class="nav-link active" href="schedule-pickup.html">Schedule pickup</a>
+            <a class="nav-link" href="my-requests.html">My requests</a>
+            <a class="nav-link" href="collection-point.html">Collection point</a>
+            <div class="nav-title">Community</div>
+            <a class="nav-link" href="report-disposal.html">Report disposal</a>
+            <a class="nav-link" href="announcements.html">Announcements</a>
+            <a class="nav-link" href="waste-guideline.html">Waste guidelines</a>
+            <div class="nav-title">Account</div>
+            <a class="nav-link" href="notifications.html">Notifications<span class="count hide">0</span></a>
+            <a class="nav-link" href="my-profile.html">My profile</a>
+            <a class="nav-link" href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-space"></div>
+        <button class="nav-link" type="button" data-logout>Log out</button>
+    </aside>
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <a class="top-logo" href="dashboard.html"><span class="brand-mark">W</span>Waste Wise</a>
+            <div class="top-right">
+                <a class="bell" href="notifications.html" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    <span class="count hide">0</span>
+                </a>
+                <a class="profile-chip" href="my-profile.html" aria-label="My profile">
+                    <span class="avatar" data-initials></span>
+                    <span class="chip-text"><b data-name></b><small>Resident · Purok 4</small></span>
+                </a>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content">
+            <h1>Schedule a pickup</h1>
+            <p class="page-sub">Tell us what to collect and when. Staff will verify your request, then assign a collector.</p>
+
+            <div class="two-col">
+                <div class="card">
+                    <div class="step-block">
+                        <h3>1. What are we collecting?</h3>
+                        <div class="choices" id="wasteChoices">
+                            <button type="button" class="choice selected" data-value="Household waste"><b>Household waste</b><span>Everyday trash</span></button>
+                            <button type="button" class="choice" data-value="Recyclables"><b>Recyclables</b><span>Paper, plastic, glass, cans</span></button>
+                            <button type="button" class="choice" data-value="Garden waste"><b>Garden waste</b><span>Leaves and trimmings</span></button>
+                            <button type="button" class="choice" data-value="Bulky items"><b>Bulky items</b><span>Furniture, large items</span></button>
+                        </div>
+                    </div>
+
+                    <div class="step-block">
+                        <h3>2. How many bags?</h3>
+                        <div class="bag-stepper">
+                            <button type="button" id="bagsMinus" aria-label="Fewer bags">−</button>
+                            <strong id="bagsCount">2</strong>
+                            <button type="button" id="bagsPlus" aria-label="More bags">+</button>
+                        </div>
+                    </div>
+
+                    <div class="step-block">
+                        <h3>3. When should we come?</h3>
+                        <div class="when-grid">
+                            <div>
+                                <label for="pickDate">Date</label>
+                                <input type="date" id="pickDate">
+                                <p class="error-text" id="dateError">Choose a date from tomorrow onward.</p>
+                            </div>
+                            <div>
+                                <span class="label">Time</span>
+                                <div class="pills" id="timeChoices">
+                                    <button type="button" class="pill selected" data-value="8:00 AM – 10:00 AM">8:00 AM – 10:00 AM</button>
+                                    <button type="button" class="pill" data-value="10:00 AM – 12:00 NN">10:00 AM – 12:00 NN</button>
+                                    <button type="button" class="pill" data-value="1:00 PM – 3:00 PM">1:00 PM – 3:00 PM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="notes">Notes for the collector <span class="hint">(optional)</span></label>
+                        <textarea id="notes" placeholder="Example: Bags are tied and beside the gate."></textarea>
+                    </div>
+
+                    <button class="btn" type="button" id="sendBtn">Send request</button>
+                </div>
+
+                <div class="stack">
+                    <div class="card">
+                        <h3>Your request</h3>
+                        <dl class="details">
+                            <div><dt>Waste</dt><dd id="sumWaste"></dd></div>
+                            <div><dt>Amount</dt><dd id="sumAmount"></dd></div>
+                            <div><dt>Date</dt><dd id="sumDate"></dd></div>
+                            <div><dt>Time</dt><dd id="sumTime"></dd></div>
+                        </dl>
+                    </div>
+                    <div class="note-box">
+                        <b>Bring your waste to:</b><br>
+                        Barangay Clean Collection Point, Tungkop, Minglanilla, Cebu 6046.
+                        <a class="text-link" href="collection-point.html">See map</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- TAB BAR (phones) -->
+<nav class="tabbar" aria-label="Main">
+        <a class="" href="dashboard.html">Home</a>
+        <a class="" href="my-requests.html">Requests</a>
+        <a class="add" href="schedule-pickup.html" aria-label="Schedule pickup">+</a>
+        <a class="" href="notifications.html">Alerts<span class="count hide">0</span></a>
+        <a class="" href="menu.html">Menu</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../jsresident/data.js"></script>
+    <script src="../jsresident/common.js"></script>
+    <script src="../jsresident/schedule-pickup.js"></script>
+</body>
+</html>

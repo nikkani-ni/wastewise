@@ -22,15 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
+            navLinks.classList.toggle("open");
 
-            const isExpanded = navLinks.classList.contains("active");
+            const isExpanded = navLinks.classList.contains("open");
             menuToggle.setAttribute("aria-expanded", String(isExpanded));
         });
 
         navLinks.querySelectorAll("a").forEach(function (link) {
             link.addEventListener("click", function () {
-                navLinks.classList.remove("active");
+                navLinks.classList.remove("open");
                 menuToggle.setAttribute("aria-expanded", "false");
             });
         });
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 !menuToggle.contains(event.target) &&
                 !navLinks.contains(event.target)
             ) {
-                navLinks.classList.remove("active");
+                navLinks.classList.remove("open");
                 menuToggle.setAttribute("aria-expanded", "false");
             }
         });
@@ -340,79 +340,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const fullName = fullNameInput.value.trim();
-            const contact = emailInput.value.trim();
-            const isEmail = contact.includes("@");
+            if (typeof WW === "undefined") {
+                showFormMessage("Registration is unavailable. Reload the page and try again.", "error");
+                return;
+            }
 
-            let users = [];
+            const submitButton = registerForm.querySelector('[type="submit"]');
+            submitButton.disabled = true;
+            showFormMessage("Creating your account…", "success");
 
-            try {
-                const savedUsers = localStorage.getItem("users");
-                users = savedUsers ? JSON.parse(savedUsers) : [];
-
-                if (!Array.isArray(users)) {
-                    users = [];
+            WW.register({
+                fullName: fullNameInput.value.trim(),
+                contact: emailInput.value.trim(),
+                password: passwordInput.value
+            }).then(function (result) {
+                if (!result.ok) {
+                    if (result.field === "email") {
+                        showError(emailError, result.error, emailInput);
+                    }
+                    showFormMessage(result.error || "Unable to create your account.", "error");
+                    return;
                 }
-            } catch (error) {
-                console.error("Unable to read saved users:", error);
-                users = [];
-            }
-
-            const normalizedContact = isEmail
-                ? contact.toLowerCase()
-                : contact.replace(/\D/g, "");
-
-            const accountExists = users.some(function (user) {
-                if (!user || !user.email) return false;
-
-                const savedContact = String(user.email).trim();
-                const normalizedSavedContact = savedContact.includes("@")
-                    ? savedContact.toLowerCase()
-                    : savedContact.replace(/\D/g, "");
-
-                return normalizedSavedContact === normalizedContact;
+                window.location.href = WW.RESIDENT_HOME;
+            }).catch(function () {
+                showFormMessage("Unable to save your account. Check your browser storage settings and try again.", "error");
+            }).finally(function () {
+                submitButton.disabled = false;
             });
-
-            if (accountExists) {
-                showError(
-                    emailError,
-                    "This email address or phone number is already registered.",
-                    emailInput
-                );
-
-                showFormMessage(
-                    "An account with this contact information already exists.",
-                    "error"
-                );
-                return;
-            }
-
-            const newUser = {
-                id: "resident-" + Date.now(),
-                fullName: fullName,
-                email: contact,
-                role: "Resident",
-                registeredAt: new Date().toISOString()
-            };
-
-
-            try {
-                users.push(newUser);
-
-                localStorage.setItem("users", JSON.stringify(users));
-                localStorage.setItem("loggedInUser", JSON.stringify(newUser));
-            } catch (error) {
-                console.error("Unable to save account:", error);
-
-                showFormMessage(
-                    "Unable to save your account. Please check your browser storage settings.",
-                    "error"
-                );
-                return;
-            }
-
-            window.location.href =
-                "../html-resident/dashboard.html";
         });
     }
 

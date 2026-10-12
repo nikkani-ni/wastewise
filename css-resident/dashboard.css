@@ -1,0 +1,145 @@
+/* Waste Wise resident dashboard */
+.dashboard-kicker {
+    margin: 4px 0 12px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+.dashboard-kicker span { margin: 0 5px; color: #B69D65; }
+.greet-small { color: var(--muted); font-size: 16px; font-weight: 600; }
+.greet-name { margin: 2px 0 22px; color: #3F5233; font-size: clamp(30px, 3vw, 38px); letter-spacing: -.6px; }
+
+/* Upcoming pickup */
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 30px 34px 26px;
+    border: 1px solid rgba(240,230,206,.34);
+    border-radius: 22px;
+    background: linear-gradient(115deg, #3C5432 0%, #526B43 62%, #657D50 100%);
+    color: #fff;
+    box-shadow: 0 14px 30px rgba(41,75,62,.16);
+}
+.hero:before {
+    position: absolute;
+    z-index: 0;
+    top: -116px;
+    right: -26px;
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(240,230,206,.15);
+    border-radius: 50%;
+    box-shadow: 0 0 0 28px rgba(240,230,206,.045), 0 0 0 58px rgba(240,230,206,.035);
+    content: "";
+    pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-label { color: #F0E6CE; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.hero-date { max-width: 78%; margin: 9px 0 10px; font-size: clamp(30px, 3.3vw, 42px); font-weight: 800; line-height: 1.12; }
+.hero-info { color: rgba(255,255,255,.88); font-size: 15px; font-weight: 500; }
+.hero .btn { margin-top: 19px; box-shadow: none; }
+
+/* Pickup progress */
+.steps { display: flex; list-style: none; margin-top: 25px; }
+.steps li { position: relative; flex: 1; padding-top: 27px; color: rgba(255,255,255,.7); font-size: 11px; text-align: center; }
+.steps li:before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    margin-left: -8px;
+    border: 2px solid rgba(255,255,255,.56);
+    border-radius: 50%;
+    background: #526B43;
+    content: "";
+}
+.steps li:after { position: absolute; top: 7px; left: 50%; width: 100%; height: 1px; background: rgba(255,255,255,.3); content: ""; }
+.steps li:last-child:after { display: none; }
+.steps li.done:before { border-color: #E2EFD9; background: #E2EFD9; }
+.steps li.done:after { background: #E2EFD9; }
+.steps li.current { color: #fff; font-weight: 700; }
+.steps li.current:before { border-color: #F0E6CE; background: #6E9A5B; box-shadow: 0 0 0 3px rgba(240,230,206,.18); }
+
+/* Summary metrics */
+.stats { display: flex; margin-top: 18px; padding: 0; overflow: hidden; }
+.stats div { flex: 1; min-width: 0; padding: 21px 25px; border-right: 1px solid var(--line); }
+.stats div:last-child { border-right: 0; }
+.stats strong { display: block; margin-bottom: 7px; color: #3F5233; font-family: 'Montserrat', Arial, sans-serif; font-size: 30px; font-weight: 800; line-height: 1; }
+.stats span { color: var(--muted); font-size: 13px; font-weight: 600; }
+
+/* Primary actions */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.tile {
+    display: flex;
+    min-width: 0;
+    min-height: 174px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+    border: 1px solid #D5E0D6;
+    border-radius: 17px;
+    background: var(--card);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 5px 14px rgba(41,75,62,.045);
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.tile:hover { transform: translateY(-3px); border-color: #AFC4B2; box-shadow: 0 12px 22px rgba(41,75,62,.11); }
+.tile-icon { display: grid; width: 42px; height: 42px; place-items: center; margin-bottom: 15px; border-radius: 12px; background: #E2EFD9; color: #526B43; }
+.tile-2 .tile-icon { background: #F0E6CE; color: #76643F; }
+.tile-3 .tile-icon { background: #F4E4DD; color: #875A49; }
+.tile-4 .tile-icon { background: #DCEBE0; color: #486B53; }
+.tile-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.tile b { margin-bottom: 6px; color: #3F5233; font-family: 'Montserrat', Arial, sans-serif; font-size: 15px; line-height: 1.3; }
+.tile > span:last-child { color: var(--muted); font-size: 12.5px; line-height: 1.45; }
+
+.section-title { margin: 30px 0 13px; color: #3F5233; font-size: 19px; }
+.dash-bottom { margin-top: 27px; }
+.dash-bottom .card { border-radius: 18px; }
+.list-card { padding-top: 7px; padding-bottom: 7px; }
+.list-card .card-head { padding: 13px 0 11px; border-bottom: 1px solid var(--line); }
+.list-card .card-head h2, .dash-bottom .card h3 { color: #3F5233; }
+.dash-bottom .stack > .card > .small-muted { margin-bottom: 8px; }
+.dash-bottom .stack > .card > .text-link { margin-top: 8px; }
+
+@media (max-width: 1050px) {
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tile { min-height: 160px; }
+}
+@media (max-width: 900px) {
+    .hero { padding: 25px 24px 22px; }
+    .hero-date { font-size: 33px; }
+    .stats div { padding: 19px 20px; }
+    .dash-bottom { margin-top: 24px; }
+}
+@media (max-width: 560px) {
+    .dashboard-kicker { margin-top: 3px; font-size: 10px; }
+    .greet-small { font-size: 14px; }
+    .greet-name { margin-bottom: 17px; font-size: 29px; }
+    .hero { padding: 22px 17px 18px; border-radius: 18px; }
+    .hero:before { top: -115px; right: -135px; }
+    .hero-date { max-width: 100%; font-size: 28px; }
+    .hero-info { font-size: 13px; line-height: 1.5; }
+    .hero .btn { width: 100%; }
+    .steps { overflow-x: auto; gap: 0; padding: 0 0 5px; }
+    .steps li { min-width: 62px; font-size: 10px; }
+    .stats div { padding: 16px 8px; text-align: center; }
+    .stats strong { font-size: 24px; }
+    .stats span { font-size: 11px; }
+    .section-title { margin-top: 25px; font-size: 17px; }
+    .tiles { gap: 10px; }
+    .tile { min-height: 153px; padding: 14px 12px; border-radius: 15px; }
+    .tile-icon { width: 37px; height: 37px; margin-bottom: 12px; }
+    .tile b { font-size: 13px; }
+    .tile > span:last-child { font-size: 11px; }
+    .dash-bottom { margin-top: 22px; }
+}
+@media (max-width: 360px) {
+    .tiles { grid-template-columns: 1fr; }
+    .tile { min-height: 125px; }
+    .stats span { font-size: 10px; }
+}

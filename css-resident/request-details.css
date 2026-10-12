@@ -1,0 +1,30 @@
+/* Waste Wise - Request details page */
+.big-msg { margin: 10px 0 0; font-size: 18px; font-weight: 700; }
+
+.timeline { list-style: none; margin-top: 22px; }
+.timeline li { position: relative; display: flex; gap: 16px; padding-bottom: 26px; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li:before { content: ""; position: absolute; left: 14px; top: 32px; bottom: 2px; width: 2px; background: var(--border); }
+.timeline li:last-child:before { display: none; }
+.timeline li.done:before { background: var(--dark); }
+
+.timeline .dot {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    background: var(--white);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.timeline li.done .dot { background: var(--dark); border-color: var(--dark); color: #fff; }
+.timeline li.current .dot { border-color: var(--accent); box-shadow: 0 0 0 5px var(--soft); }
+.timeline li.current .dot:after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.timeline b { display: block; }
+.timeline small { color: var(--muted); font-size: 15px; }
+#cancelBtn { margin-top: 26px; }
